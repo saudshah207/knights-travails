@@ -43,4 +43,14 @@ describe("Finds the shortest possible path", () => {
       [4, 3],
     ]);
   });
+
+  test("Handles the case where start and end may be same", () => {
+    expect(knightMoves([4, 4], [4, 4])).toEqual([[4, 4]]);
+  });
+
+  test("Handles the case where end may be off the board", () => {
+    expect(knightMoves([4, 4], [-1, 4])).toEqual([]);
+
+    expect(knightMoves([4, 4], [7, 9])).toEqual([]);
+  });
 });

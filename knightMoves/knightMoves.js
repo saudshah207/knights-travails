@@ -39,7 +39,7 @@ function knightMoves(start, end) {
 
   function isEndFound() {
     return (
-      queue.head.node.data[0] === end[0] && queue.head.node.data[1] === end[1]
+      queue.head?.node.data[0] === end[0] && queue.head.node.data[1] === end[1]
     );
   }
 }
