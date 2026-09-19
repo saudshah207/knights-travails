@@ -14,40 +14,7 @@ function knightMoves(start, end) {
     let rowChange = 2,
       columnChange = 1;
 
-    let newColumn, newRow;
-
     if (vertex < end) {
-      /* newRow = row + rowChange;
-      newColumn = column + columnChange;
-
-      if (newRow <= 7) {
-        if (newColumn <= 7)
-          queue.enqueue(new Vertex([newRow, newColumn], parent));
-
-        newColumn = column - columnChange;
-
-        if (newColumn >= 0)
-          queue.enqueue(new Vertex([newRow, newColumn], parent));
-      }
-
-      const previousRowChange = rowChange;
-
-      rowChange = columnChange;
-      columnChange = previousRowChange;
-
-      newRow = row + rowChange;
-      newColumn = column + columnChange;
-
-      if (newRow <= 7) {
-        if (newColumn <= 7)
-          queue.enqueue(new Vertex([newRow, newColumn], parent));
-
-        newColumn = column - columnChange;
-
-        if (newColumn >= 0)
-          queue.enqueue(new Vertex([newRow, newColumn], parent));
-      } */
-
       enqueueMoves(
         queue,
         { row, change: rowChange },
@@ -55,37 +22,6 @@ function knightMoves(start, end) {
         parent,
       );
     } else {
-      /* newRow = row - rowChange;
-      newColumn = column + columnChange;
-
-      if (newRow >= 0) {
-        if (newColumn <= 7)
-          queue.enqueue(new Vertex([newRow, newColumn], parent));
-
-        newColumn = column - columnChange;
-
-        if (newColumn >= 0)
-          queue.enqueue(new Vertex([newRow, newColumn], parent));
-      }
-
-      const previousRowChange = rowChange;
-
-      rowChange = columnChange;
-      columnChange = previousRowChange;
-
-      newRow = row - rowChange;
-      newColumn = column + columnChange;
-
-      if (newRow >= 0) {
-        if (newColumn <= 7)
-          queue.enqueue(new Vertex([newRow, newColumn], parent));
-
-        newColumn = column - columnChange;
-
-        if (newColumn >= 0)
-          queue.enqueue(new Vertex([newRow, newColumn], parent));
-      } */
-
       enqueueMoves(
         queue,
         { row, change: rowChange },
@@ -94,8 +30,6 @@ function knightMoves(start, end) {
         false,
       );
     }
-
-    // console.log(queue);
 
     queue.dequeue();
   }
