@@ -1,5 +1,5 @@
 import { test, expect, jest, describe } from "@jest/globals";
-import { knightMoves } from "./knightMoves.js";
+import { knightMoves } from "../knightMoves.js";
 
 describe("Finds the shortest possible path", () => {
   test("Finds single edge paths", () => {

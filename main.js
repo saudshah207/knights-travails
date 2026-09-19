@@ -1,4 +1,4 @@
-import { knightMoves } from "./knightMoves.js";
+import { knightMoves } from "./knightMoves/knightMoves.js";
 
 console.log(
   "Shortest path between squares [0,0] and [1,2] is:",
