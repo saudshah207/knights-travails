@@ -53,4 +53,10 @@ describe("Finds the shortest possible path", () => {
 
     expect(knightMoves([4, 4], [7, 9])).toEqual([]);
   });
+
+  test("Handles the case where start may be off the board", () => {
+    expect(knightMoves([-1, 4], [4, 4])).toEqual([]);
+
+    expect(knightMoves([7, 9], [4, 4])).toEqual([]);
+  });
 });

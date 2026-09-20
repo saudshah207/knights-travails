@@ -1,4 +1,5 @@
 import { Vertex } from "./Vertex.js";
+import { isInRange } from "./isInRange.js";
 
 function enqueueMoves(
   queue,
@@ -40,13 +41,6 @@ function enqueueMoves(
 
   function updateRow() {
     return isVertexLessThanEnd ? row.row + row.change : row.row - row.change;
-  }
-
-  function isInRange(coordinate, checkMax = true) {
-    const min = 0,
-      max = 7;
-
-    return checkMax ? coordinate <= max : coordinate >= min;
   }
 
   function getMoveKey() {
