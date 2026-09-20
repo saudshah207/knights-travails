@@ -4,6 +4,7 @@ import { buildPath } from "./buildPath.js";
 
 function knightMoves(start, end) {
   const queue = new Queue(new Vertex(start));
+  const visited = new Set([`${start[0]},${start[1]}`]);
 
   while (!isEndFound() && queue.head) {
     const parent = queue.head.node,
@@ -18,6 +19,7 @@ function knightMoves(start, end) {
     if (vertex < end) {
       enqueueMoves(
         queue,
+        visited,
         { row, change: rowChange },
         { column, change: columnChange },
         parent,
@@ -25,6 +27,7 @@ function knightMoves(start, end) {
     } else {
       enqueueMoves(
         queue,
+        visited,
         { row, change: rowChange },
         { column, change: columnChange },
         parent,

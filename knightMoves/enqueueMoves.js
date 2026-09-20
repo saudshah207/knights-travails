@@ -2,6 +2,7 @@ import { Vertex } from "./Vertex.js";
 
 function enqueueMoves(
   queue,
+  visited,
   row,
   column,
   parent,
@@ -13,14 +14,22 @@ function enqueueMoves(
     newRow = updateRow();
     newColumn = column.column + column.change;
 
+    let moveKey = getMoveKey();
+
     if (isInRange(newRow, isVertexLessThanEnd)) {
-      if (isInRange(newColumn))
+      if (isInRange(newColumn) && !visited.has(moveKey)) {
         queue.enqueue(new Vertex([newRow, newColumn], parent));
+        visited.add(moveKey);
+      }
 
       newColumn = column.column - column.change;
 
-      if (isInRange(newColumn, false))
+      moveKey = getMoveKey();
+
+      if (isInRange(newColumn, false) && !visited.has(moveKey)) {
         queue.enqueue(new Vertex([newRow, newColumn], parent));
+        visited.add(moveKey);
+      }
     }
 
     const previousRowChange = row.change;
@@ -38,6 +47,10 @@ function enqueueMoves(
       max = 7;
 
     return checkMax ? coordinate <= max : coordinate >= min;
+  }
+
+  function getMoveKey() {
+    return `${newRow},${newColumn}`;
   }
 }
 
