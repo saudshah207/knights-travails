@@ -2,6 +2,8 @@ export class Queue {
   #head;
   #tail;
 
+  #size = 0;
+
   constructor(node) {
     this.#head = {
       node: node,
@@ -9,16 +11,19 @@ export class Queue {
     };
 
     this.#tail = this.#head;
+
+    this.#size++;
   }
 
   get head() {
-    // console.log(this.#head);
     return this.#head;
   }
 
   enqueue(node) {
     this.#tail.next = { node: node, next: null };
     this.#tail = this.#tail.next;
+
+    this.#size++;
   }
 
   dequeue() {
@@ -31,6 +36,12 @@ export class Queue {
       this.#tail = null;
     }
 
+    this.#size--;
+
     return previousHead.node;
+  }
+
+  get size() {
+    return this.#size;
   }
 }
